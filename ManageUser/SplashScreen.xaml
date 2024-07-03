@@ -1,0 +1,34 @@
+﻿<Window x:Class="ManageUser.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ManageUser"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="450" Width="800"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="{x:Null}" ContentRendered="Window_ContentRendered">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50 0 0 0">
+                <WrapPanel>
+                    <Image Source="D:\anhprn\67654f6b2a7d10436445455b1458935f.png" HorizontalAlignment="Left" Height="50" Width="50"></Image>
+                    <TextBlock Text="Manage User" FontSize="28" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
+                </WrapPanel>
+                <TextBlock Text="Loading Resources.." FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="0 30 0 15"></TextBlock>
+                <ProgressBar x:Name="progressBar" Value="0" Height="5" Width="280" IsIndeterminate="True"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="320" Width="320">
+                <Image Source="D:\anhprn\6310507.jpg" ></Image>
+            </StackPanel>
+        </Grid>
+    </materialDesign:Card>
+</Window>
