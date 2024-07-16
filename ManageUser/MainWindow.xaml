@@ -15,16 +15,16 @@
 
     <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
                          Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
-        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DiaLogHost">
+        <materialDesign:DialogHost  x:Name="DiaLogHost">
             <StackPanel>
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0 20 20 0" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">
                     <StackPanel>
                         <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock VerticalAlignment="Center" Text="Dark Mode"/>
-                            <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0" x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
+                            <ToggleButton Cursor="Hand" Margin="12 0 8 0" x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
                         </StackPanel>
-                        <Button ToolTip="Having Trouble Logging In?" Margin="0 8 0 0" Content="Help Me"/>
-                        <Button x:Name="btn_exit" ToolTip="Close Application" Content="Exit Application" Click="exitApp"/>
+                        
+                        <Button x:Name="btn_exit" Content="Exit Application" Click="exitApp"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
                 <Image Margin="0 60 0 5" Source="D:\anhprn\67654f6b2a7d10436445455b1458935f.png" Height="100"/>
@@ -32,8 +32,9 @@
                 <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Log in to your existing account"/>
                 <TextBox Margin="0 50 0 0" Name="txtUserName" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Enter Username" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <PasswordBox Margin="0 20 0 0" Name="txtPassword" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Enter Password" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
-                <Button Margin="0 20 0 0" Name="loginBtn" Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="LOG IN" Click="loginBtn_Click"/>
-                <Button Margin="0 20 0 0" Name="signupBtn" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Create Account" Click="signupBtn_Click"/>
+                <Button Margin="0 20 0 0" Name="loginBtn" Style="{StaticResource MaterialDesignFlatMidBgButton}"  Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="LOG IN" Click="loginBtn_Click"/>
+                <Button Margin="0 10 0 0" Name="signupBtn" Style="{StaticResource MaterialDesignFlatButton}"  Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Create Account" Click="signupBtn_Click"/>
+                <Button Margin="0 0 0 0" Name="forgotpassBtn" Style="{StaticResource MaterialDesignFlatButton}"  Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Forgot Password" Click="forgotpassBtn_Click"/>
             </StackPanel>
         </materialDesign:DialogHost>
     </materialDesign:Card>

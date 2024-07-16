@@ -18,169 +18,113 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
+                
             </Grid.ColumnDefinitions>
             <materialDesign:ColorZone Grid.Column="0" Height="650" CornerRadius="15 0 0 15" Background="White">
                 <StackPanel Margin="15">
-                    <WrapPanel Margin="0 10 5 60" HorizontalAlignment="Center">
+                    <WrapPanel Margin="0 20 5 60" HorizontalAlignment="Center">
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Source="D:\anhprn\67654f6b2a7d10436445455b1458935f.png" Height="30" Width="30"/>
                         <TextBlock Text="Manage User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
                     </WrapPanel>
+
                     <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
                         <WrapPanel Width="120" >
                             <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 20 0"/>
                             <TextBlock>Dashboard</TextBlock>
                         </WrapPanel>
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
+                    <Button x:Name="viewprofileBtn" Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15" Click="viewprofileBtn_Click" >
                         <WrapPanel Width="120" >
-                            <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" Margin="0 0 20 0"/>
-                            <TextBlock>Add User</TextBlock>
+                            <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock>Your Profile</TextBlock>
                         </WrapPanel>
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
+                    
+                   
+                    
+                    <Button x:Name="logoutBtn" Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15" Click="logoutBtn_Click">
                         <WrapPanel Width="120" >
-                            <materialDesign:PackIcon Kind="Update" VerticalAlignment="Center" Margin="0 0 20 0"/>
-                            <TextBlock>Update User</TextBlock>
+                            <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock>Logout</TextBlock>
                         </WrapPanel>
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
-                        <WrapPanel Width="120" >
-                            <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center" Margin="0 0 20 0"/>
-                            <TextBlock>Settings</TextBlock>
-                        </WrapPanel>
-                    </Button>
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto" Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
-                        <WrapPanel Width="120" >
-                            <materialDesign:PackIcon Kind="HelpNetwork" VerticalAlignment="Center" Margin="0 0 20 0"/>
-                            <TextBlock>Help</TextBlock>
-                        </WrapPanel>
-                    </Button>
-                    <materialDesign:ColorZone Mode="Custom" Background="AliceBlue" CornerRadius="15" Padding="25 0" Margin="0 120 0 0">
+                    <materialDesign:ColorZone Mode="Custom" Background="AliceBlue" CornerRadius="15" Padding="25 0" Margin="0 180 0 0">
                         <StackPanel>
                             <Image RenderOptions.BitmapScalingMode="HighQuality" Source="D:\anhprn\p8-bg4.png" Margin="0 -60 0 0" Height="100" Width="100" HorizontalAlignment="Center"></Image>
                             <TextBlock Foreground="DodgerBlue" FontSize="11" FontWeight="SemiBold" TextAlignment="Center" HorizontalAlignment="Center">Upgrate to <Bold FontWeight="Heavy">PRO</Bold> for<LineBreak/>more resources</TextBlock>
-                            <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="28" materialDesign:ButtonAssist.CornerRadius="6" FontSize="11" Content="Upgrade" Margin="0 20 0 25"/>
+                            <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" Height="28" materialDesign:ButtonAssist.CornerRadius="6" FontSize="11" Content="Upgrade" Margin="0 20 0 25"/>
                         </StackPanel>
                     </materialDesign:ColorZone>
                 </StackPanel>
             </materialDesign:ColorZone>
-            <StackPanel Margin="30 12 0 0" Grid.Column="1">
+            <StackPanel Margin="40 18 40 0" Grid.Column="1">
                 <DockPanel>
+                    <!-- Dashboard Title -->
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Text="Dashboard"/>
-                    <Button Style="{DynamicResource MaterialDesignIconButton}" Height="40" Width="40" materialDesign:ButtonAssist.CornerRadius="6" DockPanel.Dock="Right">
+                    <!-- Date -->
+                    <TextBlock x:Name="currentDate" Text="2 July 2024" Foreground="SlateGray" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0 0 20 0"/>
+                    <!-- Search Button -->
+                    <Button Style="{DynamicResource MaterialDesignIconButton}" Height="40" Width="40" materialDesign:ButtonAssist.CornerRadius="6" DockPanel.Dock="Right" Click="Button_Click">
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <TextBlock Text="2 July 2024" Foreground="SlateGray" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0 0 20 0"/>
+                    <!-- Search TextBox -->
+                    <TextBox x:Name="txtSearch" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0 0 10 0"/>
+                    
                 </DockPanel>
-                <materialDesign:ColorZone Mode="Custom" Background="MistyRose" Foreground="LightSalmon" CornerRadius="15" Padding="40 20" Margin="0 35 0 0">
+                <materialDesign:ColorZone Mode="Custom" Background="MistyRose" Foreground="LightSalmon" CornerRadius="15" Padding="40 10" Margin="0 30 0 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <TextBlock Text="Welcome back Admin" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
-                            <TextBlock Text="You have learned 80% of your goal week!" Foreground="SlateGray" FontSize="11" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
-                            <TextBlock Text="Keep it up and improve your results!" Foreground="SlateGray" FontSize="11" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
+                        <StackPanel Grid.Column="0" Margin="40 0 0 8">
+                            <DockPanel>
+                                <TextBlock Text="Welcome back " FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
+                                <TextBlock x:Name="txtName" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
+                            </DockPanel>
+                            <TextBlock Text="Customer information management application." Foreground="SlateGray" FontSize="11" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
+                            <TextBlock Text="Track and monitor customer information." Foreground="SlateGray" FontSize="11" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0"/>
                         </StackPanel>
-                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="D:\anhprn\htm.png" Grid.Column="1" HorizontalAlignment="Right" Height="170" Width="180" Margin="0 -85 0 -25"/>
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="D:\anhprn\htm.png" Grid.Column="1" HorizontalAlignment="Center" Height="150" Width="auto" Margin="0 -80 0 -55"/>
                     </Grid>
                 </materialDesign:ColorZone>
 
                 <Grid Margin="0 30 0 0">
-                    <DataGrid x:Name="dgUser" SelectionChanged="dgUser_SelectionChanged"/>
+                    <DataGrid x:Name="dgUser" SelectionChanged="dgUser_SelectionChanged" />
                 </Grid>
-
-                <TextBlock Text="Your Courses" HorizontalAlignment="Left" FontSize="12" FontWeight="Bold" Margin="0 30 0 25"/>
+                               
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <materialDesign:ColorZone Grid.Column="0" CornerRadius="15" Height="65" Mode="Custom" Background="CornflowerBlue" Margin="0 0 15 0" Foreground="White" Padding="20 10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="23*"/>
-                                <ColumnDefinition Width="52*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <materialDesign:PackIcon Grid.Column="0" Kind="Bookshelf" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0 8 0 7"/>
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="31" Margin="0 7">
-                                <TextBlock Text="Business English" FontSize="11" FontWeight="Regular"/>
-                                <TextBlock Text="Grammar" FontSize="12" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Grid>
-                    </materialDesign:ColorZone>
-
-                    <materialDesign:ColorZone Grid.Column="1" CornerRadius="15" Height="65" Mode="Custom" Background="LightSalmon" Margin="0 0 15 0" Foreground="White" Padding="20 10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="23*"/>
-                                <ColumnDefinition Width="52*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <materialDesign:PackIcon Grid.Column="0" Kind="Pencil" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0 8 0 7"/>
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="31" Margin="0 7">
-                                <TextBlock Text="Business Japanese" FontSize="11" FontWeight="Regular"/>
-                                <TextBlock Text="Listening" FontSize="12" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Grid>
-                    </materialDesign:ColorZone>
-
-                    <materialDesign:ColorZone Grid.Column="2" CornerRadius="15" Height="65" Mode="Custom" Background="SlateGray" Margin="0 0 10 0" Foreground="White" Padding="20 10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="23*"/>
-                                <ColumnDefinition Width="52*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <materialDesign:PackIcon Grid.Column="0" Kind="Announcement" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0 8 0 7"/>
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="31" Margin="0 7">
-                                <TextBlock Text="Business Spanish" FontSize="11" FontWeight="Regular"/>
-                                <TextBlock Text="Vocabulary" FontSize="12" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Grid>
-                    </materialDesign:ColorZone>
+                    <DockPanel HorizontalAlignment="Center" Margin="0 20 0 0">
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="AliceBlue" Background="AliceBlue" Foreground="DodgerBlue" materialDesign:ButtonAssist.CornerRadius="6" Margin="20 15 20 20" Width="100" Height="35" HorizontalAlignment="Center" Click="Button_Click_2">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="Eye" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="View"/>
+                            </WrapPanel>
+                        </Button>
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="LightSkyBlue" Background="LightSkyBlue" Foreground="DodgerBlue" materialDesign:ButtonAssist.CornerRadius="6" Margin="20 15 20 20" Width="100" Height="35" HorizontalAlignment="Center" Click="Button_Click_1">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="AccountsAddOutline" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="Add"/>
+                            </WrapPanel>
+                        </Button>
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="Gainsboro" Background="Gainsboro" Foreground="Black" materialDesign:ButtonAssist.CornerRadius="6" Margin="20 15 20 20" Width="100" Height="35" HorizontalAlignment="Center" Click="Button_Click_3">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="Edit"/>
+                            </WrapPanel>
+                        </Button>
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="LightPink" Background="LavenderBlush" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Margin="20 15 20 20" Width="100" Height="35" HorizontalAlignment="Center" Click="Button_Click_4">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="Delete"/>
+                            </WrapPanel>
+                        </Button>
+                        
+                    </DockPanel>
                 </Grid>
             </StackPanel>
 
-            <materialDesign:ColorZone Grid.Column="2" Margin="30 0 0 0" CornerRadius="0 15 15 0" Height="650" Background="White" Foreground="Black">
-                <StackPanel Margin="25 12 25 0">
-                    <DockPanel Margin="0 12 5 0">
-                        <TextBlock Text="Your Profile" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <Button Style="{DynamicResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40" Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Button_Click">
-                            <materialDesign:PackIcon x:Name="btn_Logout" Kind="LogoutVariant"/>
-                        </Button>
-                    </DockPanel>
-
-                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="D:\anhprn\6131849.png" Height="90" Width="90" HorizontalAlignment="Center" Margin="0 25 0 0"></Image>
-                    <TextBlock FontSize="12" FontWeight="SemiBold" Margin="0 15 0 7" TextAlignment="Center" HorizontalAlignment="Center" Foreground="Black">Anna Morrison</TextBlock>
-                    <TextBlock Text="Student" FontSize="11" FontWeight="SemiBold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="Gray"/>
-
-                    <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="LightPink" Background="AliceBlue" Foreground="DodgerBlue" materialDesign:ButtonAssist.CornerRadius="6" Margin="0 15 0 0" Width="89" Height="35"  HorizontalAlignment="Center" Click="Button_Click_1">
-                        <WrapPanel>
-                            <materialDesign:PackIcon Kind="Eye" VerticalAlignment="Center" Margin="0 0 10 0"/>
-                            <TextBlock Text="View"/>
-                        </WrapPanel>
-
-                    </Button>
-
-                    <Button Style="{DynamicResource MaterialDesignFlatButton}" materialDesign:RippleAssist.Feedback="LightPink" Background="LavenderBlush" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Margin="0 15 0 20" Width="89" Height="35" HorizontalAlignment="Center">
-                        <WrapPanel>
-                            <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Margin="0 0 10 0"/>
-                            <TextBlock Text="Edit"/>
-                        </WrapPanel>
-                        
-                    </Button>
-
-                    
-
-
-                </StackPanel>
-            </materialDesign:ColorZone>
+            
         </Grid>
     </materialDesign:Card>
 </Window>

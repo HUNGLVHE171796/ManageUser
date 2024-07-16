@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace ManageUser
 {
@@ -21,6 +22,8 @@ namespace ManageUser
     /// </summary>
     public partial class SplashScreen : Window
     {
+
+
         public SplashScreen()
         {
             InitializeComponent();
@@ -51,10 +54,13 @@ namespace ManageUser
             {
                 /*HomeForUser homeForUser = new HomeForUser();
                 Close();
-                homeForUser.ShowDialog();*/
-                HomeForAdmin homeForAdmin = new HomeForAdmin();
+                homeForUser.ShowDialog();
+                HomeForAdmin homeForAdmin = new HomeForAdmin(user);
                 Close();
-                homeForAdmin.ShowDialog();
+                homeForAdmin.ShowDialog();*/
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             }
         }
 

@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManageUser.Models;
 using MaterialDesignThemes.Wpf;
+using System.Linq;
 
 namespace ManageUser
 {
@@ -18,11 +19,10 @@ namespace ManageUser
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
+        public MainWindow()            {
             InitializeComponent();
         }
-
+ 
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
 
@@ -64,21 +64,28 @@ namespace ManageUser
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             var user = context.Users.FirstOrDefault(u => u.Email.Equals(txtUserName.Text) && u.PassWord.Equals(txtPassword.Password));
-            if (user != null && user.RoleId == 2)
+            if (user != null && user.RoleId == 1) 
             {
-                SplashScreen splashScreen = new SplashScreen();
-                splashScreen.Show();
-                this.Close();
-            }
-            else if (user != null && user.RoleId == 1)
-            {
-                HomeForAdmin homeForAdmin = new HomeForAdmin();
+                HomeForAdmin homeForAdmin = new HomeForAdmin(user);
                 homeForAdmin.Show();
                 this.Close();
-            } else
+            }
+            else if (user != null && user.RoleId == 2)
             {
+                HomeForUser homeForUser = new HomeForUser(user);
+                homeForUser.Show();
+                this.Close();
+            } else
+            { 
                 MessageBox.Show("Login fail!");
             }
+        }
+
+        private void forgotpassBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ForgotPass forgotPass = new ForgotPass();
+            forgotPass.Show();
+            this.Close();
         }
     }
 }
